@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Policy Feed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Recent Policy Updates</h1>
+    <ul>
+        {% for title, last_modified, url in docs %}
+        <li>
+            <strong>{{ title }}</strong><br>
+            <em>{{ last_modified }}</em><br>
+            <a href="{{ url }}" target="_blank">View</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
