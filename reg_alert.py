@@ -63,7 +63,9 @@ def update_and_alert(docs, cur, conn):
     conn.commit()
 
 # === ENTRYPOINT ===
-if __name__ == "__main__":
+def run_reg_check(keyword="solar", limit=10):
     conn, cur = init_db()
-    documents = get_documents(keyword="solar", limit=10)
+    documents = get_documents(keyword=keyword, limit=limit)
     update_and_alert(documents, cur, conn)
+    conn.close()
+
